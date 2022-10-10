@@ -16,7 +16,7 @@ class Util
      */
     public static function isEmail($email)
     {
-        return (filter_var($email, FILTER_VALIDATE_EMAIL) !== false) ? true : false;
+        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false ? true : false;
     }
 
     /**
@@ -26,7 +26,7 @@ class Util
     public static function dd($var)
     {
         if (is_bool($var)) {
-            $var = 'bool(' . ($var ? 'true' : 'false') . ')';
+            $var = 'bool(' . var_export($var, true) . ')';
         }
 
         if (php_sapi_name() === 'cli') {
